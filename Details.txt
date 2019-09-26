@@ -1,0 +1,7 @@
+https://www.reddit.com/r/TheOnion/
+https://www.reddit.com/r/nottheonion/
+
+https://www.analyticsvidhya.com/blog/2019/04/datahack-radio-machine-learning-identify-fake-news-mike-tamir/
+https://github.com/KaiDMML/FakeNewsNet
+https://github.com/sumeetkr/AwesomeFakeNews
+http://www.fakenewschallenge.org/
