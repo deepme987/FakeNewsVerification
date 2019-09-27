@@ -4,19 +4,20 @@
 	<title>
 		Fake News Detection
 	</title>
-	<link href="style.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename = 'css/style.css') }}" rel="stylesheet">
+
 </head>
 <body>
 	<section id="bg">
 		<!-- <img src="bg.jpg"> -->
 	</section>
 	<div id="search">
-		<h1>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit</h1>
-		<h6>There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain</h6>
-        {% if test %}
-            <h1> {{ test }} </h1>
-        {% endif %}
-		<form action="/index" method="POST">
+		<h1>Alternative Facts And Fake news are just other names for propaganda</h1>
+		<h6>Only fake people value fake news</h6>
+        {%  if CONTEXT['test'] %}
+            <h1> {{ CONTEXT['test'] }}{{ CONTEXT['do'] }} </h1>
+            {% endif %}
+		<form action="/index" method="post">
 			<div class="row1">
 				<input name="title" id="title" class="text" type="text" placeholder="Enter The Message to be verified">
 				<input name="link" id="link" class="domain" type="text" placeholder="Enter the site where you found this (optional)">
@@ -27,5 +28,6 @@
 			</div>
 		</form>
 	</div>
+
 </body>
 </html>
