@@ -11,10 +11,15 @@ FakeNews = mydb["Fake_News"]
 title1 = None
 result = ""
 
+
+# def redirect_index():
+#     return redirect("/index")
+
+@app.route('/', methods=['POST', 'GET'])
 @app.route('/index', methods=['POST', 'GET'])
 def index():
     global title1
-    news = FakeNews.find({}, {"_id":0, "Title": 1, "Domain": 1})
+    news = FakeNews.find({}, {"_id": 0, "Title": 1, "Domain": 1})
     if request.method == 'POST':
         title1= request.form['title']
         domain1=request.form['link']
