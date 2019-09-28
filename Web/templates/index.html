@@ -8,7 +8,6 @@
 </head>
 <body>
 	<section id="bg">
-		<!-- <img src="bg.jpg"> -->
 	</section>
 	<div id="search">
 		<h1>Alternative Facts And Fake news are just other names for propaganda</h1>
@@ -26,7 +25,6 @@
 	</div>
 
     {% if CONTEXT['flag'] %}
-{#        {% print("hi") %}#}
     <div id="results">
         <section>
             <h2>Results</h2>
@@ -58,11 +56,13 @@
                         
                     </div>
                     <div class="right">
-                        <button>Report the result?</button>
+                        <form action = "/store" method = 'POST'>
+                            <button type="Submit" name='lol'>Report the result?</button>
+                        </form>
                     </div>
                 </div>
 
-            <!-- <div class="rright">right side </div> -->
+
             </div>
         </section>
     </div>
@@ -73,12 +73,9 @@
             <div>
                 {% for x in CONTEXT['news']: %}
                 <p id="title_name"><b>{{x["Title"]}}</b>
-                    <a href="{{ x['Domain'] }}">{{x["Domain"]}}
-
-                    </a>
-                    </p>
+                    <a href="{{ x['Domain'] }}">{{x["Domain"]}}</a>
+                </p>
                 {% endfor %}
-<!--                <p id="domain_link"> {{ CONTEXT['news'] }}</p>-->
             </div>
         </section>
     </div>
