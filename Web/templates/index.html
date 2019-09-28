@@ -46,11 +46,12 @@
                          
                             {% if CONTEXT['result'] == "Fake" %}
                             <p style="color:red" class="result">RESULT : 
-                                {{CONTEXT['result']}} 
+                                {{CONTEXT['result']}} <br>Confidence {{CONTEXT['conf']}}
                             </p>
                             {% else %}
-                            <p style="color:green" class="result">RESULT : 
-                                {{CONTEXT['result']}} 
+                            <p style="color:green" class="result">RESULT :
+                                {{CONTEXT['result']}} <br>Confidence {{CONTEXT['conf']}}
+
                             </p>
                             {% endif %} 
                         
