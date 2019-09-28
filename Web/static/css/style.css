@@ -5,7 +5,7 @@
 #bg{
 	/*background-image: url("bg.jpg")*/
 	height:100vh;
-	background:linear-gradient(to top, #f16334,white);
+	background:linear-gradient(to right bottom, #f4845f,white,#f4845f);
 	position: relative;
 	/*opacity: 0.6*/
 }
@@ -78,7 +78,12 @@ input:focus{
 	/*transition: 0.5s ease;*/
 }
 #results{
-	background:linear-gradient(to right,#f16334,white);
+	/*background:linear-gradient(to left bottom, #f4845f,white,#f4845f);*/
+	background-color:beige;
+	height: 80vh;
+	display:flex;
+	align-content: center;
+	align-items: center;
 }
 #results section,#fakenews section{
 	width: 80%;
@@ -86,11 +91,12 @@ input:focus{
 	margin-right:auto;
 	text-align: center;
 	padding:20px;
+	/*margin-top: -40px;*/
 }
 h2{
-	font-family:Georgia;
-	margin-bottom: 30px;
-	font-size: 30px;
+	font-family:times new roman;
+	font-size: 50px;
+	margin-bottom: 40px;
 }
 #results div{
 	display: flex;
@@ -99,20 +105,72 @@ h2{
 	border-collapse: none;
 	border:1px solid white;
 	border-radius:10px;
-	background-color: #9C1A1C;
+	background-color: red;
 	color: white;
 	padding:15px;
-	width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+}
+.internal{
+	display:flex;
+	align-items: center;
+
 }
 .rleft{
-	width: 60%;
+	width:100%;
+	display: flex;
+	align-items: center;
+
+}
+.rleft .left{
+	width:60%;
+}
+.left{
 	display: flex;
 	flex-direction: column;
 }
-.rright{
-	width:40%;
-	/*border: 1px solid white;*/
+.left p{
+	font-size:18px;
+	font-family: georgia;
+	padding:10px;
 }
+.rleft .right{
+	width:40%;
+}
+.result{
+	font-size:20px;
+}
+/*.rleft span:nth-of-type(1){
+	flex:70%;
+}
+.rleft span:nth-of-type(2){
+	flex:30%;
+}*/
+/*.rright{
+	width:40%;
+	border: 1px solid white;
+}*/
 #fakenews{
-	background:linear-gradient(to left,#f16334,white);
+	/*background:linear-gradient(to left,#f16334,white);*/
+	background-color: #ff8080;
+	background:linear-gradient(to left bottom, #f4845f,white,#f4845f);
+}
+#fakenews section{
+	text-align:left;
+}
+#fakenews section h2{
+	text-align: center;
+}
+/*#fakenews  p b{
+	font-size:;
+}*/
+#title_name{
+	font-size: 18px;
+	font-family: Georgia;
+	padding:10px;
+
+}
+a:visited{
+	color:blue;
 }
