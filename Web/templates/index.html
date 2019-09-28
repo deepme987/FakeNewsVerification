@@ -25,6 +25,9 @@
 			</div>
 		</form>
 	</div>
+
+    {% if CONTEXT['flag'] %}
+        {% print("hi") %}
     <div id="results">
         <section>
             <h2>Results</h2>
@@ -47,6 +50,7 @@
             </div>
         </section>
     </div>
+    {% endif %}
     <div id="fakenews">
         <section>
             <h2>Trending Fake News</h2>
