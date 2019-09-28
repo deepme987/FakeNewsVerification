@@ -55,7 +55,11 @@
         <section>
             <h2>Trending Fake News</h2>
             <div>
-                <p></p>
+                {% for x in CONTEXT['news']: %}
+                <p><b>{{x["Title"]}}</b>
+                    {{x["Domain"]}}</p>
+                {% endfor %}
+<!--                <p>{{ CONTEXT['news'] }}</p>-->
             </div>
         </section>
     </div>
