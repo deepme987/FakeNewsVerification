@@ -1,9 +1,5 @@
-<<<<<<< HEAD
 from flask import Flask, render_template, request
-=======
-from flask import Flask, render_template, request, redirect
 import pymongo
->>>>>>> 61f88a142f8b35f74569957ca4087082b552f851
 import pickle
 from googlescrapper import Scrapper
 
