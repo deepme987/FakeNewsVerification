@@ -5,7 +5,7 @@
 #bg{
 	/*background-image: url("bg.jpg")*/
 	height:100vh;
-	background:linear-gradient(to top, #f16334,white);
+	background:linear-gradient(to top, #f4845f,white);
 	position: relative;
 	/*opacity: 0.6*/
 }
@@ -78,7 +78,8 @@ input:focus{
 	/*transition: 0.5s ease;*/
 }
 #results{
-	background:linear-gradient(to right,#f16334,white);
+	/*background:linear-gradient(to right,#f16334,white);*/
+	background-color:#fbe4dc;
 }
 #results section,#fakenews section{
 	width: 80%;
@@ -86,6 +87,7 @@ input:focus{
 	margin-right:auto;
 	text-align: center;
 	padding:20px;
+	/*margin-top: -40px;*/
 }
 h2{
 	font-family:Georgia;
@@ -108,11 +110,13 @@ h2{
 	width: 60%;
 	display: flex;
 	flex-direction: column;
+	text-align: center;
 }
 .rright{
 	width:40%;
 	/*border: 1px solid white;*/
 }
 #fakenews{
-	background:linear-gradient(to left,#f16334,white);
+	/*background:linear-gradient(to left,#f16334,white);*/
+	background-color: #f19132;
 }
