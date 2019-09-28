@@ -6,12 +6,12 @@ app = Flask(__name__)
 def index():
     print("Index")
     if request.method == 'POST':
-        print("Hi")
+        # print("Hi")
         title1= request.form['title']
         domain1=request.form['link']
-        print(domain1)
-        print(title1)
-        return render_template('index.html', CONTEXT={'test': title1, 'do': domain1})
+        # print(domain1)
+        # print(title1)
+        return render_template('index.html', CONTEXT={'title': title1, 'do': domain1, 'flag':True})
     # return "hello world"
 # def redirect():
 #     message = request.form['title']
@@ -19,7 +19,8 @@ def index():
 #     return(message)
 # def run(message,domain):
 #    return 'welcome %s' % name
-    return render_template("index.html", CONTEXT=None)
+    else:
+        return render_template("index.html", CONTEXT={'flag': False})
 
 
 if __name__ == '__main__':
