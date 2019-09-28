@@ -1,15 +1,13 @@
 
 from google import google
-import nltk.stem.snowball
 from nltk.stem import WordNetLemmatizer
-import string
+import pickle
 
 
 class Scrapper:
     def __init__(self):
-        self.stopwords = nltk.corpus.stopwords.words('english')
-        self.stopwords.extend(string.punctuation)
-        self.stopwords = set(self.stopwords)
+        with open("Models/stopwords.pickle", 'rb') as file:
+            self.stopwords = pickle.load(file)
         self.lemmatizer = WordNetLemmatizer()
 
     def remove_stopwords(self, title):
@@ -37,7 +35,11 @@ class Scrapper:
                 else:
                     score[i] = 0
 
-        avg, n = sum(score.values()) / len(score.values()), len(query.split())
+        try:
+            avg, n = sum(score.values()) / len(score.values()), len(query.split())
+        except ZeroDivisionError:
+            return "Cannot be determined", -1
+
         if avg > n // 2:
             return "Real", avg / n
         else:
