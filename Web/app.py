@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request, redirect
 import pymongo
+import pickle
+
 
 app = Flask(__name__)
 
@@ -20,14 +22,15 @@ def index():
         domain1=request.form['link']
         # print(domain1)
         # print(title1)
-        return render_template('index.html', CONTEXT={'title': title1, 'do': domain1, 'news': news, 'flag':True})
-    # return "hello world"
-# def redirect():
-#     message = request.form['title']
-#     domain = request.form['link']
-#     return(message)
-# def run(message,domain):
-#    return 'welcome %s' % name
+        with open("NaiveBayes/NB.pickle", 'rb') as file:
+            nb = pickle.load(file)
+
+        with open("NaiveBayes/cvec.pickle", 'rb') as file:
+            cvec = pickle.load(file)
+
+        result = "Real" if nb.predict(cvec.transform([title1])) == [0] else "Fake"
+        print(result)
+        return render_template('index.html', CONTEXT={'title': title1, 'do': domain1, 'flag': True, 'result': result})
     else:
         return render_template("index.html", CONTEXT={'news': news, 'flag': False})
 

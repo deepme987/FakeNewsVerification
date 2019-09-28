@@ -43,7 +43,7 @@
                             {{ CONTEXT['do'] }}
                         </span>
                     {% endif %}
-                    <p>fake/notfake</p>
+                    <p>fake/notfake {% if CONTEXT['result'] %} {{   CONTEXT['result']    }} {% endif %} </p>
                     <button>Report?</button>
                 </div>
             <div class="rright">right side </div>
