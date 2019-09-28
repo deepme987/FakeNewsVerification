@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect
 import pymongo
 import pickle
+import math
 from googlescrapper import Scrapper
 
 
@@ -29,13 +30,13 @@ def index():
 
         scrapper = Scrapper()
         sc_result, sc_prob = scrapper.search_query(title1)
-
+        sc_prob = round(sc_prob, 4)
         print("Scrapper: ", sc_result, sc_prob)
 
         result = sc_result
 
         return render_template('index.html', CONTEXT={'title': title1, 'do': domain1,
-                                                      'flag': True, 'result': result, 'conf': sc_prob})
+                                                      'flag': True, 'result': result, 'conf': sc_prob * 100})
 
     else:
         return render_template("index.html", CONTEXT={'news': news, 'flag': False})
