@@ -14,13 +14,10 @@
 	<div id="search">
 		<h1>Alternative Facts And Fake news are just other names for propaganda</h1>
 		<h6>Only fake people value fake news</h6>
-        {%  if CONTEXT['test'] %}
-            <h1> {{ CONTEXT['test'] }}{{ CONTEXT['do'] }} </h1>
-            {% endif %}
 		<form action="/index" method="post">
 			<div class="row1">
-				<input name="title" id="title" class="text" type="text" placeholder="Enter The Message to be verified">
-				<input name="link" id="link" class="domain" type="text" placeholder="Enter the site where you found this (optional)">
+				<input name="title" id="title" class="text" type="text" placeholder="Enter The Message to be verified" >
+				<input name="link" id="link" class="domain" type="text" placeholder="Enter the site where you found this">
 			</div>
 
 			<div class="row2">
@@ -28,6 +25,35 @@
 			</div>
 		</form>
 	</div>
-
+    <div id="results">
+        <section>
+            <h2>Results</h2>
+            <div>
+                <div class="rleft">
+                    {%  if CONTEXT['title'] %}
+                        <span>Message:
+                            {{ CONTEXT['title'] }}
+                        </span>
+                    {% endif %}
+                    {%  if CONTEXT['do'] %}
+                        <span>Site name:
+                            {{ CONTEXT['do'] }}
+                        </span>
+                    {% endif %}
+                    <p>fake/notfake</p>
+                    <button>Report?</button>
+                </div>
+            <div class="rright">right side </div>
+            </div>
+        </section>
+    </div>
+    <div id="fakenews">
+        <section>
+            <h2>Trending Fake News</h2>
+            <div>
+                <p></p>
+            </div>
+        </section>
+    </div>
 </body>
 </html>
