@@ -5,7 +5,6 @@
 		Fake News Detection
 	</title>
     <link href="{{ url_for('static', filename = 'css/style.css') }}" rel="stylesheet">
-
 </head>
 <body>
 	<section id="bg">
@@ -31,22 +30,37 @@
     <div id="results">
         <section>
             <h2>Results</h2>
-            <div>
+            <div class="internal">
                 <div class="rleft">
-                    {%  if CONTEXT['title'] %}
-                        <span>Message:
+                    <div class="left">
+                        {%  if CONTEXT['title'] %}
+                        <p>
                             {{ CONTEXT['title'] }}
-                        </span>
-                    {% endif %}
-                    {%  if CONTEXT['do'] %}
-                        <span>Site name:
+                        </p><br>
+                        {% endif %}
+                        {%  if CONTEXT['do'] %}
+                        <p>
                             {{ CONTEXT['do'] }}
-                        </span>
-                    {% endif %}
-                    <p>{% if CONTEXT['result'] %} {{   CONTEXT['result']    }} {% endif %} </p>
-                    <button>Report?</button>
+                        </p>
+                        {% endif %}<br>
+                         
+                            {% if CONTEXT['result'] == "Fake" %}
+                            <p style="color:red" class="result">RESULT : 
+                                {{CONTEXT['result']}} 
+                            </p>
+                            {% else %}
+                            <p style="color:green" class="result">RESULT : 
+                                {{CONTEXT['result']}} 
+                            </p>
+                            {% endif %} 
+                        
+                    </div>
+                    <div class="right">
+                        <button>Report the result?</button>
+                    </div>
                 </div>
-            <div class="rright">right side </div>
+
+            <!-- <div class="rright">right side </div> -->
             </div>
         </section>
     </div>
@@ -56,10 +70,13 @@
             <h2>Trending Fake News</h2>
             <div>
                 {% for x in CONTEXT['news']: %}
-                <p><b>{{x["Title"]}}</b>
-                    {{x["Domain"]}}</p>
+                <p id="title_name"><b>{{x["Title"]}}</b>
+                    <a href="{{ x['Domain'] }}">{{x["Domain"]}}
+
+                    </a>
+                    </p>
                 {% endfor %}
-<!--                <p>{{ CONTEXT['news'] }}</p>-->
+<!--                <p id="domain_link"> {{ CONTEXT['news'] }}</p>-->
             </div>
         </section>
     </div>

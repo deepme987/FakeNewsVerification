@@ -15,7 +15,7 @@ def index():
     FakeNews = mydb["Fake_News"]
     print("3")
     news = FakeNews.find({}, {"_id":0, "Title": 1, "Domain": 1})
-    print("news[0:10:1]")
+    print(news[0:7])
     if request.method == 'POST':
         # print("Hi")
         title1= request.form['title']
@@ -30,7 +30,7 @@ def index():
 
         result = "Real" if nb.predict(cvec.transform([title1])) == [0] else "Fake"
         print(result)
-        return render_template('index.html', CONTEXT={'title': title1, 'do': domain1, 'flag': True, 'result': result})
+        return render_template('index.html', CONTEXT={'title': title1, 'news' : news,'do': domain1, 'flag': True, 'result': result})
     else:
         return render_template("index.html", CONTEXT={'news': news, 'flag': False})
 
