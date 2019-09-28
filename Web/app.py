@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 import pymongo
 import pickle
 from googlescrapper import Scrapper
@@ -6,17 +6,15 @@ from googlescrapper import Scrapper
 
 app = Flask(__name__)
 myclient = pymongo.MongoClient("mongodb://localhost:27017/")
-print("4")
 mydb = myclient["mydatabase"]
-print("5")
 FakeNews = mydb["Fake_News"]
 title1 = None
+result = ""
 
 @app.route('/index', methods=['POST', 'GET'])
 def index():
     global title1
     news = FakeNews.find({}, {"_id":0, "Title": 1, "Domain": 1})
-    print(news[0:7])
     if request.method == 'POST':
         title1= request.form['title']
         domain1=request.form['link']
@@ -47,8 +45,11 @@ def index():
 def button_press():
     global title1
     if request.method == 'POST':
-        FakeNews.insert_one({"Title": title1})
-        return render_template('index.html', CONTEXT={})
+        if result=="Real":
+            FakeNews.insert_one({"Title": title1})
+            return render_template('index.html', CONTEXT={})
+
+    return redirect("/index")
 
 
 if __name__ == '__main__':
