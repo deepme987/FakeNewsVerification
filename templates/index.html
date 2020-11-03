@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Fake News Detection
+	</title>
+    <link href="{{ url_for('static', filename = 'css/style.css') }}" rel="stylesheet">
+    
+    <!-- FavIcon config -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../static/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../static/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../static/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../static/favicon/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="shortcut icon" type="image/x-icon" href="../static/favicon/favicon.ico" />
+</head>
+<body>
+	<section id="bg">
+	</section>
+	<div id="search">
+		<h1>Alternative Facts And Fake news are just other names for propaganda</h1>
+		<h6>Only fake people value fake news</h6>
+		<form action="/index" method="post">
+			<div class="row1">
+				<input name="title" id="title" class="text" type="text" placeholder="Enter The Message to be verified" >
+				<input name="link" id="link" class="domain" type="text" placeholder="Enter Source Link (Optional)">
+			</div>
+
+			<div class="row2">
+				<button id="submit" type="submit">Search</button>
+			</div>
+		</form>
+    {% if CONTEXT['flag'] %}
+    <div id="results">
+        <section>
+            <h2>Results</h2>
+            <div class="internal">
+                <div class="rleft">
+                    <div class="left">
+                        {%  if CONTEXT['title'] %}
+                        <p>{{ CONTEXT['title'] }}</p>
+                        {% endif %}
+                        {%  if CONTEXT['do'] %}
+                        <p>{{ CONTEXT['do'] }}</p>
+                        {% endif %}
+                         
+                            {% if CONTEXT['result'] == "Fake" %}
+                            <p style="color:red" class="result">RESULT : {{CONTEXT['result']}} <br>Confidence {{CONTEXT['conf']}}</p>
+                            {% else %}
+                            <p style="color:green" class="result">RESULT : {{CONTEXT['result']}} <br>Confidence {{CONTEXT['conf']}}</p>
+                            {% endif %} 
+                        
+                    </div>
+                    <div class="right">
+                        <form action = "/store" method = 'POST'>
+                            <button type="Submit" name='lol'>Report the result?</button>
+                        </form>
+                    </div>
+                </div>
+
+
+            </div>
+        </section>
+    </div>
+    {% endif %}
+	</div>
+
+    
+    <div id="fakenews">
+        <section>
+            <h2>Trending Fake News</h2>
+            <div>
+                {% for x in CONTEXT['news']: %}
+                <p id="title_name"><b>{{x["Title"]}}</b>
+                    <a href="{{ x['Domain'] }}">{{x["Domain"]}}</a>
+                </p>
+                {% endfor %}
+            </div>
+        </section>
+    </div>
+</body>
+</html>

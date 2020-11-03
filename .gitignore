@@ -3,6 +3,7 @@ Statements/
 .idea/
 datasets/
 datasets/
+GitIgnore
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

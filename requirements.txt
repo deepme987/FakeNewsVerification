@@ -1,0 +1,4 @@
+flask
+nltk
+pymongo
+-e git://github.com/abenassi/Google-Search-API.git
