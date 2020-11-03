@@ -2,6 +2,8 @@
 
 Fake News Verification is a simple tool that can be used to quickly check a news for it's legitimacy. FakeNewsVerification uses a straight-forward approach to achieve this goal. In layman's terms: it automated the job of having to google search for a particular news to verify it. The application does the same. Given an input of text, we query google with and process the text using NLP. After fetching results, we validate the news and provide a score to the news using our secret scorer. Since the results are queried in real-time, we do not need to update the algorithm or server. The approach we used enables us to provide dynamic results. The application also provides you the confidence of the news. So incase a news is controversial, the lower score will indicate that you may require to look up the news yourself :)
 
+**Lower score indicates lower authenticity of the news**
+
 Sample images:
 1. Real News:
 
