@@ -37,7 +37,8 @@ def index():
         scrapper = Scrapper()
         sc_result, sc_prob = scrapper.search_query(title1)
         if sc_prob != -1:
-            sc_prob = round(sc_prob, 4)
+            sc_prob = round(sc_prob, 2)
+        print(sc_prob)
         print("Scrapper: ", sc_result, sc_prob)
 
         result = sc_result
