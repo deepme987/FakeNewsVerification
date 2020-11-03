@@ -5,11 +5,11 @@ Fake News Verification is a simple tool that can be used to quickly check a news
 Sample images:
 1. Real News:
 
-![RealSample](Samples/Real.png "Real Sample") 
+![RealSample](Samples/Real_sample.png "Real Sample") 
 
 2. Fake News:
 
-![FakeSample](Samples/Fake.png "Fake Sample")
+![FakeSample](Samples/Fake_sample.png "Fake Sample")
 *To use the application, you can visit the the the [link]("To be added")*
 ---
 
